@@ -98,11 +98,10 @@ function Layer<LayerT extends ILayer>(props: LayerProps<LayerT | CustomLayerInte
   useEffect(() => {
     if (map) {
       const forceUpdate = () => setStyleLoaded(version => version + 1);
-      map.on('styledata', forceUpdate);
+      map.once('style.load', forceUpdate);
       forceUpdate();
 
       return () => {
-        map.off('styledata', forceUpdate);
         // @ts-ignore
         if (map.style && map.style._loaded && map.getLayer(id)) {
           map.removeLayer(id);
