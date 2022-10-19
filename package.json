@@ -1,7 +1,7 @@
 {
-  "name": "react-map-gl",
+  "name": "@emblautec/react-map-gl",
   "description": "React components for Mapbox GL JS-compatible libraries",
-  "version": "7.0.19",
+  "version": "1.0.19",
   "keywords": [
     "mapbox",
     "mapbox-gl",
@@ -25,12 +25,12 @@
   "scripts": {
     "typecheck": "tsc -p tsconfig.esm.json --noEmit",
     "bootstrap": "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn && ocular-bootstrap",
-    "build": "ocular-clean && tsc -b tsconfig.esm.json && tsc -b tsconfig.es5.json",
+    "build": "tsc -b tsconfig.esm.json && tsc -b tsconfig.es5.json",
     "lint": "ocular-lint",
     "cover": "ocular-test cover",
     "publish-prod": "ocular-publish prod",
     "publish-beta": "ocular-publish beta",
-    "test": "yarn typecheck && ocular-test",
+    "test": "yarn typecheck",
     "test-fast": "yarn typecheck && ocular-test node",
     "metrics": "ocular-metrics",
     "update-release-branch": "scripts/update-release-branch.sh"
@@ -61,8 +61,5 @@
     "react-test-renderer": "^17.0.0",
     "ts-loader": "^9.2.6",
     "typescript": "^4.0.0"
-  },
-  "pre-commit": [
-    "test-fast"
-  ]
+  }
 }

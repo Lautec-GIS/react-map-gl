@@ -539,7 +539,7 @@ export default class Mapbox {
       };
     }
 
-    const map: any = new this._MapClass(mapOptions);
+    const map: any = new this._MapClass(mapOptions as mapboxgl.MapboxOptions);
     // Props that are not part of constructor options
     if (viewState.padding) {
       map.setPadding(viewState.padding);
@@ -862,7 +862,7 @@ export default class Mapbox {
     }
     if (eventType in cameraEvents) {
       if (typeof event === 'object') {
-        (event as ViewStateChangeEvent).viewState = transformToViewState(tr);
+        (event as unknown as ViewStateChangeEvent).viewState = transformToViewState(tr);
       }
       if (this._map.isMoving()) {
         // Replace map.transform with ours during the callbacks
